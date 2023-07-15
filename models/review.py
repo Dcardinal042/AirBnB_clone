@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+
 """ holds class Review"""
+
 import models
 from models.base_model import BaseModel, Base
 from models.place import Place
@@ -7,7 +9,6 @@ from models.user import User
 from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey
-
 
 class Review(BaseModel, Base):
     """Representation of a review """

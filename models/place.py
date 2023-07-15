@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+
 """ holds class Place"""
+
 import models
 from models.base_model import BaseModel, Base
 from models.city import City
@@ -8,7 +10,6 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
 from sqlalchemy.orm import relationship
-
 
 if models.storage_t == 'db':
     place_amenity = Table('place_amenity', Base.metadata,
@@ -50,7 +51,7 @@ class Place(BaseModel, Base):
         def reviews(self):
             """getter for list of Review instances related to the place"""
             review_list = []
-            all_reviews = models.storage.all(Review)
+            all_reviews = models.storage.all("Review")
             for review in all_reviews.values():
                 if review.place_id == self.id:
                     review_list.append(review)
@@ -60,7 +61,7 @@ class Place(BaseModel, Base):
         def amenities(self):
             """getter for list of Amenity instances related to the place"""
             amenity_list = []
-            all_amenities = models.storage.all(Amenity)
+            all_amenities = models.storage.all("Amenity")
             for amenity in all_amenities.values():
                 if amenity.id in self.amenity_ids:
                     amenity_list.append(amenity)
@@ -71,4 +72,3 @@ class Place(BaseModel, Base):
             """setter for amenities"""
             if isinstance(value, Amenity):
                 self.amenity_ids.append(value.id)
-
