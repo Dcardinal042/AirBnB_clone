@@ -95,4 +95,3 @@ class DBStorage:
         else:
             count = self.__session.query(cls).count()
         return count
-
