@@ -1,71 +1,129 @@
-###AirBnB Clone
+AirBnB clone - The console
+image
 
-##Description of the project: 
-This project is an implementation of an AirBnB clone. It consists of a command-line interface (CLI) that allows users to interact with the application and perform various operations such as creating, updating, and deleting instances of different classes.
+AirBnB clone - The console
+For further information, click on the previous link.
 
-###Description og the command interpreter:
-##How to start it:
-##Usage:
-To start the console, run the following command:
+Airbnb Clone - Structure
+Airbnb Structure
+
+UML - Airbnb Console
+UML - Airbnb
+
+Contents:
+Project Description
+
+General Objetives
+
+Command Interpreter Description
+
+How to start it
+Commands and their usage
+How to use it
+examples
+Unittests
+
+Project Description
+Airbnb Clone is the main project of the second trimester at Holberton School. The aim is to develop an entire web application that simulates the behavior of the Airbnb platform. Starting from the console or command interpreter, to manipulate data without a visual interface, like in a Shell (perfect for development and debugging), followed by the construction of a website (the front-end) that shows the final product to everybody: static and dynamic, once it's finished what follows is the connection with the database or files that store data (data = objects). And last but not least, the creation of an API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them).
+
+General Objetives
+How to create a Python package
+
+How to create a command interpreter in Python using the cmd module
+
+What is Unit testing and how to implement it in a large project
+
+How to serialize and deserialize a Class
+
+How to write and read a JSON file
+
+How to manage datetime
+
+What is an UUID
+
+What is *args and how to use it
+
+What is **kwargs and how to use it
+
+How to handle named arguments in a function
+
+Command Interpreter Description
+How to start it
+
+Follow the instructions to get a copy of the program and run in your local machine:
+
+Clone the following repository.
+https://github.com/julianfrancor/AirBnB_clone.git
+
+Run the program
 ./console.py
 
-##How to use it:
-Once the console is running, you can enter commands to interact with the application:
-For example:
+Commands and their usage
 
-##Commands:
-The console supports the following commands:
+Command	Usage	Example	Description
+create	create <class  name>	create BaseModel	Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+show	show <class  name>  <id>	show BaseModel 1234-1234-1234	Prints the string representation of an instance based on the class name and id.
+destroy	destroy <class  name>  <id>	destroy BaseModel 1234-1234-1234	Deletes an instance based on the class name and id (save the change into the JSON file).
+all	all <class  name> or all	all BaseModel	Prints all string representation of all instances based or not on the class name.
+update	update <class  name>  <id>  <attribute  name> "<attribute  value>"	update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"	Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+all()	<class  name>.all()	User.all()	Retrieve all instances of a class
+count()	<class  name>.count()	User.count()	Retrieve the number of instances of a class
+show()	<class  name>.show(<id>)	User.show("246c227a-d5c1-403d-9bc7-6a47bb9f0f68")	retrieve an instance based on its ID
+destroy()	<class  name>.destroy(<id>)	User.destroy("246c227a-d5c1-403d-9bc7-6a47bb9f0f68")	Destroy an instance based on his ID
+update()	<class  name>.update(<id>, <attribute  name>, <attribute  value>)	User.update("38f22813-2753-4d42-b37c-57a17f1e4f88", "age", 89)	Update an instance based on his ID
+update() with dictionary	<class  name>.update(<id>, <dictionary  representation>)	User.update("38f22813-2753-4d42-b37c-57a17f1e4f88", {'first_name': "John", "age": 89})	Update an instance based on his ID with a dictionary
+Prerequisites
+For further installation is necessary to set this program on Ubuntu 14.04 LTS using Vagrant in VirtualBox.
 
-1. `create` - Create a new instance of a class and save it to the JSON file. Usage: `create <class name>`.
-2. `show` - Display the string representation of an instance based on the class name and ID. Usage: `show <class name> <id>`.
-3. `destroy` - Delete an instance based on the class name and ID. Usage: `destroy <class name> <id>`.
-4. `all` - Display the string representation of all instances or all instances of a specific class. Usage: `all` or `all <class name>`.
-5. `update` - Update an instance based on the class name, ID, attribute name, and attribute value. Usage: `update <class name> <id> <attribute name> "<attribute value>"`.
+You need to install this software
 
-###Available Classes:
-##The project includes the following classes:
+1. VirtualBox - Virtual Machine
 
-1. BaseModel - the base class for all other classes.
-2. User - represents a user.
-   Public class attributes:
-   - email: string (empty string)
-   - password: string (empty string)
-   - first_name: string (empty string)
-   - last_name: string (empty string)
+2. Vagrant
 
-3. State - represents a state.
-   Public class attributes:
-   - name: string (empty string)
+3. Emacs
 
-4. City - represents a city.
-   Public class attributes:
-   - state_id: string (empty string) - the ID of the associated state
-   - name: string (empty string)
+4. Vim/Vi
 
-5. Amenity - represents an amenity.
-   Public class attributes:
-   - name: string (empty string)
+5. VSCode
 
-6. Place - represents a place.
-   Public class attributes:
-   - city_id: string (empty string) - the ID of the associated city
-   - user_id: string (empty string) - the ID of the user who owns the place
-   - name: string (empty string)
-   - description: string (empty string)
-   - number_rooms: integer (0)
-   - number_bathrooms: integer (0)
-   - max_guest: integer (0)
-   - price_by_night: integer (0)
-   - latitude: float (0.0)
-   - longitude: float (0.0)
-   - amenity_ids: list of strings (empty list) - list of amenity IDs
+6. Usage: ./console.py
+Built with...
+Visual Studio Code - Coding and structuring.
+python 3.4.3
+BaseModel
+Write a class BaseModel that defines all common attributes/methods for other classes
+File storage
+Write a class FileStorage that serializes instances to a JSON file and deserializes JSON file to instances
+Console
+Write a program called console.py that contains the entry point of the command interpreter:
 
-7. Review - represents a review.
-   Public class attributes:
-   - place_id: string (empty string) - the ID of the associated place
-   - user_id: string (empty string) - the ID of the user who wrote the review
-   - text: string (empty string)
+create
+show
+destroy
+all
+update
+First User
+Write a class User that inherits from BaseModel
+More classes
+Classes that inherit from BaseModel:
 
-###Authors:
-- Glamour Maphanga <glamour.maphangat@gmail.com>
-- Samuel Okoh <samokoh40@gmail.com> 
+State
+
+City
+
+Amenity
+
+Place
+
+Review
+
+Unittests
+All the tests should be executed at the root of the project by using the following command:
+
+python3 -m unittest discover tests
+
+Authors
+GitHub - Samuel okoh
+
+GitHub - Glamour Maphanga
