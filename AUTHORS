@@ -1,4 +1,5 @@
-###This file consists of a list of Authors for the Airbnb clone
+# This file lists all individuals having contributed content to the repository.
+# For how it is generated, see `hack/generate-authors.sh`.
 
-Glamour Maphanga <glamour.maphangat@gmail.com>
-Samuel Okoh <samokoh40@gmail.com>
+Samuel okoh
+Glmour Maphanga
