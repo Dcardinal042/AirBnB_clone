@@ -1,53 +1,20 @@
 #!/usr/bin/python3
 """
-User class module
+class User that inherits from BaseModel
 """
-
-import models
-from models.base_model import BaseModel, Base
-from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, String
-from sqlalchemy.orm import relationship
+from models.base_model import BaseModel
 
 
-class User(BaseModel, Base):
+class User(BaseModel):
     """
-    Representation of a user
+        Summary: Definning the User class that inherits from BaseModel
+        Public class attributes:
+            email: string - empty string
+            password: string - empty string
+            first_name: string - empty string
+            last_name: string - empty string
     """
-    if models.storage_t == 'db':
-        __tablename__ = 'users'
-        email = Column(String(128), nullable=False)
-        password = Column(String(128), nullable=False)
-        first_name = Column(String(128), nullable=True)
-        last_name = Column(String(128), nullable=True)
-        places = relationship("Place", backref="user")
-        reviews = relationship("Review", backref="user")
-    else:
-        email = ""
-        password = ""
-        first_name = ""
-        last_name = ""
-
-    def __init__(self, *args, **kwargs):
-        """
-        Initializes user
-        """
-        super().__init__(*args, **kwargs)
-
-    # Implement additional methods or properties here
-
-    # Example implementation of a new method
-    def full_name(self):
-        """
-        Returns the full name of the user
-        """
-        return f"{self.first_name} {self.last_name}"
-
-    # Update existing methods if necessary
-
-    def __str__(self):
-        """
-        Returns a string representation of the user
-        """
-        return f"[User] ({self.id}) {self.email}: {self.full_name()}"
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
